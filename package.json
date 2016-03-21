@@ -4,7 +4,7 @@
   "description": "First fumblings with Mocha, Chai, and Sinon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha"
   },
   "keywords": [
     "Mocha",
@@ -19,11 +19,11 @@
     "sqlite3": "^3.1.1"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
-    "mocha": "^2.4.5",
-    "request": "^2.69.0",
-    "sinon": "^1.17.3",
-    "sinon-as-promised": "^4.0.0"
+    "chai": "*",
+    "chai-as-promised": "*",
+    "mocha": "*",
+    "request": "*",
+    "sinon": "*",
+    "sinon-as-promised": "*"
   }
 }
