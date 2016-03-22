@@ -49,43 +49,52 @@ describe('Todo model', function () {
 
   describe('description', function () {
 
-    it('should not be null', function (done) {
+    it('should not be null', function () {
 
       var todoWithNullDescription = Todo.create({});
 
-      expect(todoWithNullDescription)
-        .to.eventually.be.rejectedWith("notNull Violation: description cannot be null");
-      done();
+      return expect(todoWithNullDescription)
+        .to.eventually.be.rejectedWith("notNull Violation: description cannot be null");      
     });
 
-    it('should have between 1 — 250 characters', function (done) {
+    it('should have between 1 — 250 characters', function () {
       var todoWithShortDescription = Todo.create({
         description: SHORT_DESCRIPTION
       });
 
-      expect(todoWithShortDescription).to.eventually.be.fulfilled;
-      done();
+      return expect(todoWithShortDescription).to.eventually.be.fulfilled;
     });
 
-    it('should not be less than 1 character', function (done) {
+    it('should not be less than 1 character', function () {
       var todoWithEmptyDescription = Todo.create({
         description: EMPTY_DESCRIPTION
       });
 
-      expect(todoWithEmptyDescription)
+      return expect(todoWithEmptyDescription)
         .to.eventually.be.rejectedWith("Validation error: Validation len failed");
-      done();
     });
 
-    it('should not be more than 250 characters', function (done) {
+    it('should not be more than 250 characters', function () {
       var todoWithLongDescription = Todo.create({
         description: LONG_DESCRIPTION
       });
 
-      expect(todoWithLongDescription)
+      return expect(todoWithLongDescription)
         .to.eventually.be.rejectedWith("Validation error: Validation len failed");
-      done();
     });
 
+  });
+  
+  
+  describe('completed', function () {
+
+    it('should provide default value of false if not present', function () {
+      var todoWithNoCompletedStatus = Todo.create({
+        description: SHORT_DESCRIPTION
+      });
+      
+      return expect(todoWithNoCompletedStatus)
+        .to.eventually.be.fulfilled;
+    });
   });
 });

@@ -41,8 +41,4 @@ var server = app.listen(PORT, function () {
 
 
 // Export for testing
-module.exports = {
-  closeServer: function () {
-    server.close();
-  }
-}
+module.exports = server;

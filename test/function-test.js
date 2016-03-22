@@ -22,15 +22,14 @@ describe('Promise Me', function () {
     expect(returnedMsg)
       .to.be.a('string')
       .and.to.equal("Yeah! Biscuits... Now that's what I call love");
-
+    
     love = 123 + 456;
   });
   
 
-  it('should hate maths', function(done) {
+  it('should hate maths', function() {
     expect(returnedMsg)
       .to.be.a('string')
       .and.to.equal("Nope! Not feeling the love");
-    done();
   });
 });
